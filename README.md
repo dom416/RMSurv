@@ -6,7 +6,4 @@ Abstract: Multimodal cancer survival models have the potential to significantly 
 For replication, first create a MINDS database (https://github.com/lab-rasool/MINDS) using the provided cohort file or 'TCGA-LUAD'.
 We use -omics files downloaded from https://xenabrowser.net/datapages/
 
-
-
-
-
+For any questions contact Dominic Flack (dominic416@gmail.com) (daf6674@rit.edu)
