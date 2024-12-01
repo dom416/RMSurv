@@ -2,7 +2,7 @@ import os
 import logging
 import torch
 from torch.utils.data import DataLoader
-from HFBSurvmain.HFBSurvmain.HFBSurv.model.survival_dataset_medianfill import SurvivalDataset  # Adjust import as needed
+from model.survival_dataset_medianfill import SurvivalDataset  # Adjust import as needed
 
 from model.train_concat import train_concat, test_concat
 from model.train_concat_cox import train_concat_cox, test_concat_cox
@@ -12,13 +12,13 @@ from model.train_HFB_cox_6 import train_HFB_cox, test_HFB_cox
 
 
 
-from HFBSurvmain.HFBSurvmain.HFBSurv.model.train_test_2modal import train_2mod, test_2mod
-from HFBSurvmain.HFBSurvmain.HFBSurv.model.options import parse_args
+from model.train_test_2modal import train_2mod, test_2mod
+from model.options import parse_args
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 import pickle
-from HFBSurvmain.HFBSurvmain.HFBSurv.model.finetune_uni import finetune_uni, get_uni_embeddings, save_uni, save_embedding
+from model.finetune_uni import finetune_uni, get_uni_embeddings, save_uni, save_embedding
 from SeNMomain.SeNMomain.SENMO import train_senmo
 import statistics
 
