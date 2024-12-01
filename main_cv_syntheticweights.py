@@ -2,7 +2,7 @@ import os
 import logging
 import torch
 from torch.utils.data import DataLoader
-from HFBSurvmain.HFBSurvmain.HFBSurv.model.survival_dataset_medianfill import SurvivalDataset  # Adjust import as needed
+from model.survival_dataset_medianfill import SurvivalDataset  # Adjust import as needed
 
 from model.train_pathology import train_path, test_path
 from model.train_genexpress import train_genex, test_genex
@@ -12,18 +12,18 @@ from model.train_copy_num import train_copynum, test_copynum
 from model.train_protein import train_protein, test_protein
 from model.train_clinical import train, test
 
-from HFBSurvmain.HFBSurvmain.HFBSurv.model.train_test_2modal import train_2mod, test_2mod
+from model.train_test_2modal import train_2mod, test_2mod
 
-from HFBSurvmain.HFBSurvmain.HFBSurv.model.test_ensemble_1to6mods import test_ensemble, test_ensemble_weight_finding, compute_rho_between
+from model.test_ensemble_1to6mods import test_ensemble, test_ensemble_weight_finding, compute_rho_between
 
-from HFBSurvmain.HFBSurvmain.HFBSurv.model.test_ensemble import test_ensemble_stdev, test_ensemble_weight_finding_stdev
+from model.test_ensemble import test_ensemble_stdev, test_ensemble_weight_finding_stdev
 
 
-from HFBSurvmain.HFBSurvmain.HFBSurv.model.options import parse_args
+from model.options import parse_args
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
-from HFBSurvmain.HFBSurvmain.HFBSurv.model.finetune_uni import finetune_uni, get_uni_embeddings, save_uni, save_embedding
+from model.finetune_uni import finetune_uni, get_uni_embeddings, save_uni, save_embedding
 from SeNMomain.SeNMomain.SENMO import train_senmo
 import statistics
 from compute_ideal_weights_2 import compute_ideal_weights
