@@ -16,14 +16,12 @@ from model.discrete_hazards_plot import plot_survival_probabilities
 from model.SNN import SeNMo_Trg
 #from HFBSurvmain.HFBSurvmain.HFBSurv.model.finetune_uni import custom_collate_fn
 
-####################################################### MFB ############################################################
-
 def train_mirna(opt,train_data,test_data,device):
     cudnn.deterministic = True
     torch.cuda.manual_seed_all(666)
     torch.manual_seed(666)
     random.seed(666)
-    model = HFBSurv(1012, (128, 64), (20, 0, 20), (0.1, 0.3), 20, 0.1).to(device) 
+    model = HFBSurv(634, (128, 64), (20, 0, 20), (0.1, 0.3), 20, 0.1).to(device) 
     #model = SeNMo_Trg().to(device)
     model.to(device) 
     #model = torch.nn.DataParallel(model, device_ids=[0,1,2,3])
@@ -31,7 +29,7 @@ def train_mirna(opt,train_data,test_data,device):
 
     print(model)
     print("Number of Trainable Parameters: %d" % count_parameters(model))
-    train_loader = DataLoader(dataset=train_data, batch_size=10, shuffle=True, drop_last=True)#,pin_memory=True,num_workers=10,collate_fn=custom_collate_fn)
+    train_loader = DataLoader(dataset=train_data, batch_size=200, shuffle=True, drop_last=True)#,pin_memory=True,num_workers=10,collate_fn=custom_collate_fn)
     # batch_size=int(len(train_data)/10)
     metric_logger = {'train':{'loss':[], 'pvalue':[], 'cindex':[], 'surv_acc':[]},
                       'test':{'loss':[], 'pvalue':[], 'cindex':[], 'surv_acc':[]}}
@@ -199,5 +197,4 @@ def test_mirna(opt,model, test_data, device):
     #pred_test = [risk_pred_all, survtime_all, censor_all]
     #code_final_data = code_final.data.cpu().numpy()
     return loss_test, cindex_test, all_embeddings, case_ids
-    
     
